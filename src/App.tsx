@@ -1,17 +1,9 @@
 import React from 'react'
-
 import './App.css'
+import { Hello } from '@components/Hello'
 
 function App() {
-  return <Hello title='AAAAAAAAAAA' />
-}
-
-type PropsType = {
-  title: string
-}
-
-function Hello(props: PropsType) {
-  return <p> {props.title} </p>
+  return <Hello title='AAAAAAAAAAAdadedefd' />
 }
 
 export default App
