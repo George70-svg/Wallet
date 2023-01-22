@@ -1,14 +1,26 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { LoginPage } from '@components/loginPage/loginPage'
+import { WalletPage } from '@components/walletPage/walletPage'
+import { ExpensesPage } from '@components/walletPage/expensesPage/expensesPage'
+import { ExchangePage } from '@components/walletPage/exchangePage/exchangePage'
+import { InvoicePage } from '@components/walletPage/invoicePage/invoicePage'
+
+import { GlobalStyles } from './styles/globalStyles'
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
+      <GlobalStyles />
       <Routes>
-        <Route path='/' element={<LoginPage />}></Route>
+        <Route path='/' element={<LoginPage />} />
+        <Route path='wallet' element={<WalletPage />}>
+          <Route path='invoice' element={<InvoicePage />} />
+          <Route path='expenses' element={<ExpensesPage />} />
+          <Route path='exchange' element={<ExchangePage />} />
+        </Route>
       </Routes>
-    </BrowserRouter>
+    </>
   )
 }
 
