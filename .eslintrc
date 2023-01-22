@@ -4,7 +4,7 @@
     "prefer-const": "warn",
     "quotes": ["warn", "single"],
     "indent": ["warn", 2],
-    "max-len": ["warn", { "code": 120 }],
+    "max-len": ["warn", { "code": 150 }],
     "semi": ["warn", "never"],
     "no-multi-spaces": "error",
     "space-in-parens": "error",

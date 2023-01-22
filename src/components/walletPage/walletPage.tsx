@@ -1,9 +1,9 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { InvoicePage } from '@components/walletPage/invoicePage/invoicePage'
+import { Navigation } from '@components/walletPage/components/Navigation'
 import { ExpensesPage } from '@components/walletPage/expensesPage/expensesPage'
 import { ExchangePage } from '@components/walletPage/exchangePage/exchangePage'
-import { Navigation } from '@components/walletPage/components/Navigation'
+import { Route, Routes } from 'react-router-dom'
+import { InvoicePage } from '@components/walletPage/invoicePage/invoicePage'
 
 export function WalletPage() {
   return (
