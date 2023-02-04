@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
 
-import { CommonStyle } from './stylesType'
+import { CommonStyle } from './types/stylesType'
 
-export const GlobalStyles = createGlobalStyle`@import url(
-  'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+export const Styles = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
   * {
     box-sizing: border-box;
@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`@import url(
   
   body {
     height: 100vh;
+    width: 100vw;
     overflow: hidden;
     margin: 0;
 
@@ -26,21 +27,32 @@ export const GlobalStyles = createGlobalStyle`@import url(
     color: ${() => commonStyle.colors.white};
   }
   
-  h1 {
+  h1, h2, h3 {
     margin: 0;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  :root {
+    --login-card-height: 45rem;
+    --login-card-width: calc(var(--login-card-height) / 1.4);
   }
 `
 
-const commonStyle: CommonStyle = {
+export const commonStyle: CommonStyle = {
   colors: {
     white: '#ffffff',
-    whiteOpacity: 'rgba(255, 255, 255, 0.3)',
-    blue: '#1890FF',
-    lightBlue: '#6fb6fa',
+    whiteOpacity: 'rgba(255, 255, 255, 0.95)',
+    blue: '#1976d2',
+    lightBlue: '#42a5f5',
+    darkBlue: '#1565c0',
     yellow: '#F8D96D',
     darkYellow: '#efbe00',
     red: '#ED3D3D',
     green: '#7DD76F',
+    darkPurple: '#191c29',
     grey100: '#f5f5f5',
     grey200: '#ededed',
     grey300: '#e0e0e0',
@@ -56,6 +68,7 @@ const commonStyle: CommonStyle = {
     backgroundDark: 'linear-gradient(180deg, rgba(54,52,90,1) 12%, rgba(50,50,90,1) 40%, rgba(20,20,20,1) 100%)',
   },
   fonts: {
+    fs0: '0.75rem',
     fs1: '1rem',
     fs2: '1.2rem',
     fs3: '1.4rem',
@@ -72,7 +85,7 @@ const commonStyle: CommonStyle = {
     halfHorShadow: '4px 0 20px 0 rgba(0 , 0, 0, 25%)',
   },
   radii: {
-    radius1: '0.5rem',
+    radius1: '0.8rem',
     radius2: '1rem',
     radius3: '1.5rem',
     radius4: '2rem',
@@ -80,5 +93,5 @@ const commonStyle: CommonStyle = {
     radius6: '3rem',
     radius7: '3.5rem',
     radius8: '4rem',
-  }
+  },
 }

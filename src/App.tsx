@@ -6,12 +6,12 @@ import { ExpensesPage } from '@components/walletPage/expensesPage/expensesPage'
 import { ExchangePage } from '@components/walletPage/exchangePage/exchangePage'
 import { InvoicePage } from '@components/walletPage/invoicePage/invoicePage'
 
-import { GlobalStyles } from './styles/globalStyles'
+import { Styles } from './styles'
 
 function App() {
   return (
     <>
-      <GlobalStyles />
+      <Styles />
       <Routes>
         <Route path='/' element={<LoginPage />} />
         <Route path='wallet' element={<WalletPage />}>
