@@ -1,14 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { StyledLoginPage } from '@components/loginPage/styles/loginPage.styled'
+import { LoginContainer } from '@components/loginPage/components/loginContainer'
 
 export function LoginPage() {
   return (
-    <div>
-      <h1>Login</h1>
-
-      <Link to={'wallet/invoice'}>
-        <h2>Go to wallet</h2>
-      </Link>
-    </div>
+    <StyledLoginPage>
+      <LoginContainer />
+      <div className='no-view'></div>
+    </StyledLoginPage>
   )
 }
