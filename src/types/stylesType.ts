@@ -16,6 +16,7 @@ type Colors = {
   darkYellow: Color
   red: Color
   green: Color
+  purple: Color,
   darkPurple: Color
   grey100: Color
   grey200: Color
@@ -27,10 +28,13 @@ type Colors = {
   grey800: Color
   grey900: Color
   black: Color
+  widgetBackgroundDark: Color
+  widgetBackgroundDarkLight: Color
 }
 
 type Gradients = {
   backgroundDark: string
+  backgroundLight: string
 }
 
 type Fonts = {
@@ -61,6 +65,15 @@ type Radii = {
   radius6: string
   radius7: string
   radius8: string
+  radiusFull: string
+}
+
+type Times = {
+  time1: string
+  time2: string
+  time3: string
+  time4: string
+  time5: string
 }
 
 export type CommonStyle = {
@@ -69,4 +82,5 @@ export type CommonStyle = {
   fonts: Fonts
   shadows: Shadows
   radii: Radii
+  times: Times
 }

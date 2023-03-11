@@ -5,8 +5,13 @@ import { LoginContainer } from '@components/loginPage/components/loginContainer'
 export function LoginPage() {
   return (
     <StyledLoginPage>
-      <LoginContainer />
-      <div className='no-view'></div>
+      <div className='landscape'>
+        <h3>Sorry, please turn your device</h3>
+      </div>
+
+      <div className='portrait'>
+        <LoginContainer />
+      </div>
     </StyledLoginPage>
   )
 }

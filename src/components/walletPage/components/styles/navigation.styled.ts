@@ -6,11 +6,26 @@ export const StyledNavigation = styled.header`
   display: flex;
   justify-content: center;
   gap: 2rem;
-  padding: 1rem 0;
+  padding-bottom: 0.5rem;
   font-size: ${() => commonStyle.fonts.fs2};
   text-align: center;
+  
+  .links {
+    .MuiButtonBase-root {
+      min-width: 10rem;
+      height: 3rem;
+      border: none;
+      color: white;
+      font-weight: bold;
+      letter-spacing: 0.2rem;
+    }
+    
+    .Mui-selected {
+      color: ${() => commonStyle.colors.purple};
+    }
 
-  .active {
-    border-bottom: 2px solid white;
+    .MuiTabs-indicator {
+      background-color: ${() => commonStyle.colors.purple};
+    }
   }
 `
