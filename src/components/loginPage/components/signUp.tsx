@@ -90,7 +90,7 @@ export function SignUp() {
               variant='standard'
               {...register('password', {
                 //The password must contain latin characters, numbers and special characters
-                pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*~()_+-={};:<>,./?\|])(?=.*[0-9])(?=.*[a-z]).{8,}$/,
+                pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*~()_+-={};:<>,./?])(?=.*[0-9])(?=.*[a-z]).{8,}$/,
                 required: true,
                 minLength: 8,
               })}
@@ -113,7 +113,7 @@ export function SignUp() {
               variant='standard'
               {...register('confirmPassword', {
                 //The password must contain latin characters, numbers and special characters
-                pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*~()_+-={};:<>,./?\|])(?=.*[0-9])(?=.*[a-z]).{8,}$/,
+                pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*~()_+-={};:<>,./?])(?=.*[0-9])(?=.*[a-z]).{8,}$/,
                 required: true,
                 minLength: 8,
               })}

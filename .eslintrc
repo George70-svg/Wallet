@@ -4,7 +4,7 @@
     "prefer-const": "warn",
     "quotes": ["warn", "single"],
     "indent": ["warn", 2],
-    "max-len": ["warn", { "code": 120 }],
+    "max-len": ["warn", { "code": 140 }],
     "semi": ["warn", "never"],
     "object-curly-spacing": ["warn", "always"],
     "no-multi-spaces": "error",
