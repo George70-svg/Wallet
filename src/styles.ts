@@ -10,7 +10,8 @@ export const Styles = createGlobalStyle`
   }
   
   body {
-    overflow: hidden;
+    //height: 100vh;
+    //width: 100vw;
     margin: 0;
 
     background: ${() => commonStyle.gradients.backgroundDark};
@@ -62,8 +63,8 @@ export const commonStyle: CommonStyle = {
     grey800: '#424242',
     grey900: '#212121',
     black: '#000000',
-    widgetBackgroundDark: 'rgba(79, 83, 115, 0.85)',
-    widgetBackgroundDarkLight: 'rgba(118, 127, 161, 0.85)',
+    widgetBackgroundDark: 'rgba(79, 83, 115, 1)',
+    widgetBackgroundDarkLight: 'rgba(118, 127, 161, 1)',
   },
   gradients: {
     backgroundDark: 'linear-gradient(180deg, rgba(54,52,90,1) 12%, rgba(50,50,90,1) 40%, rgba(20,20,20,1) 100%)',
