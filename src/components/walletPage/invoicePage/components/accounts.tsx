@@ -4,7 +4,7 @@ import { StyledAccounts } from '@components/walletPage/invoicePage/components/st
 export function AccountsWidget() {
   return (
     <StyledAccounts>
-      <div className="accounts-container"></div>
+      123
     </StyledAccounts>
   )
 }
