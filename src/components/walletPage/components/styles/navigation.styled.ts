@@ -7,9 +7,9 @@ export const StyledNavigation = styled.header`
   top: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
-  padding-bottom: 0.5rem;
-  background-color: ${() => commonStyle.colors.grey800};
+  //background-color: ${() => commonStyle.colors.grey800};
   font-size: ${() => commonStyle.fonts.fs2};
   text-align: center;
   
@@ -30,5 +30,11 @@ export const StyledNavigation = styled.header`
     .MuiTabs-indicator {
       background-color: ${() => commonStyle.colors.purple};
     }
+  }
+  
+  .user-menu-container {
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
   }
 `
