@@ -16,7 +16,7 @@ type Colors = {
   darkYellow: Color
   red: Color
   green: Color
-  purple: Color,
+  purple: Color
   darkPurple: Color
   grey100: Color
   grey200: Color

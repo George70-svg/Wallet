@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { LoginErrors } from '@components/components/errors/loginErrors'
 import { Box, Button, TextField } from '@mui/material'
 import { StyledLogin } from '@components/loginPage/components/styles/login.styled'
 import { AccountCircle, Lock, Email } from '@mui/icons-material'
-import { LoginErrors } from '@components/components/errors/loginErrors'
 
 interface IFormInput {
   login: string
@@ -119,11 +119,7 @@ export function SignUp() {
               })}
             />
           </Box>
-          <LoginErrors
-            validationErrors={errors.confirmPassword}
-            dataErrors={passwordsNotEqual}
-            field='confirmPassword'
-          />
+          <LoginErrors validationErrors={errors.confirmPassword} dataErrors={passwordsNotEqual} field='confirmPassword' />
         </div>
 
         <Button className='enter-button' variant='contained' type='submit'>

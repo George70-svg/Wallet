@@ -12,7 +12,7 @@ export const StyledNavigation = styled.header`
   //background-color: ${() => commonStyle.colors.grey800};
   font-size: ${() => commonStyle.fonts.fs2};
   text-align: center;
-  
+
   .links {
     .MuiButtonBase-root {
       min-width: 10rem;
@@ -22,7 +22,7 @@ export const StyledNavigation = styled.header`
       font-weight: bold;
       letter-spacing: 0.2rem;
     }
-    
+
     .Mui-selected {
       color: ${() => commonStyle.colors.purple};
     }
@@ -31,7 +31,7 @@ export const StyledNavigation = styled.header`
       background-color: ${() => commonStyle.colors.purple};
     }
   }
-  
+
   .user-menu-container {
     position: absolute;
     top: 0.5rem;

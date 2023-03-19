@@ -1,5 +1,3 @@
 import styled from 'styled-components'
 
-export const StyledWallet = styled.div`
-
-`
+export const StyledWallet = styled.div``

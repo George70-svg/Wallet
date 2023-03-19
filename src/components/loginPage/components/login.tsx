@@ -1,10 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 import { Box, Button, Checkbox, FormControlLabel, TextField } from '@mui/material'
 import { AccountCircle, Lock } from '@mui/icons-material'
 import { StyledLogin } from '@components/loginPage/components/styles/login.styled'
 import { LoginErrors } from '@components/components/errors/loginErrors'
+import { setLogin } from '@store/authStore'
 
 interface IFormInput {
   login: string
@@ -20,9 +22,11 @@ export function Login() {
   } = useForm<IFormInput>()
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const onSubmit = (data: any) => {
     console.log(data)
+    dispatch(setLogin(data.login))
     navigate('wallet/invoice')
   }
 
@@ -34,12 +38,7 @@ export function Login() {
         <div className='input-container'>
           <Box sx={{ display: 'flex', alignItems: 'flex-end', marginBottom: '1rem' }}>
             <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-            <TextField
-              label='Login'
-              type='text'
-              variant='standard'
-              {...register('login', { required: true, minLength: 5 })}
-            />
+            <TextField label='Login' type='text' variant='standard' {...register('login', { required: true, minLength: 5 })} />
           </Box>
           <LoginErrors validationErrors={errors.login} field='login' />
 

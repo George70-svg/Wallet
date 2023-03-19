@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { commonStyle } from '../../../../../styles'
 
 export const StyledAccounts = styled.div.attrs(() => ({
-  className: 'accounts-container'
+  className: 'accounts-container',
 }))`
   flex-basis: 70%;
   margin: 2rem;
