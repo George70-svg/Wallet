@@ -11,7 +11,6 @@ interface LoginErrorsType {
 }
 
 export function LoginErrors(props: LoginErrorsType) {
-  //console.log(props)
   type ErrorMessages = {
     loginRequired: string
     loginMinLength: string
@@ -64,9 +63,7 @@ export function LoginErrors(props: LoginErrorsType) {
         <p className='error-text'>{errorMessages.emailRequired}</p>
       )}
 
-      {props.field === 'email' && props.validationErrors?.type === 'pattern' && (
-        <p className='error-text'>{errorMessages.invalidEmail}</p>
-      )}
+      {props.field === 'email' && props.validationErrors?.type === 'pattern' && <p className='error-text'>{errorMessages.invalidEmail}</p>}
 
       {props.field === 'confirmPassword' && props.validationErrors?.type === 'required' && (
         <p className='error-text'>{errorMessages.passwordRequired}</p>
@@ -80,13 +77,9 @@ export function LoginErrors(props: LoginErrorsType) {
         <p className='error-text'>{errorMessages.passwordPattern}</p>
       )}
 
-      {props.field === 'confirmPassword' && props.dataErrors && (
-        <p className='error-text'>{errorMessages.passwordsNotEqual}</p>
-      )}
+      {props.field === 'confirmPassword' && props.dataErrors && <p className='error-text'>{errorMessages.passwordsNotEqual}</p>}
 
-      {props.field === 'password' && props.dataErrors && (
-        <p className='error-text'>{errorMessages.invalidLoginOrPassword}</p>
-      )}
+      {props.field === 'password' && props.dataErrors && <p className='error-text'>{errorMessages.invalidLoginOrPassword}</p>}
     </StyledLoginErrors>
   )
 }

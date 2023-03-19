@@ -22,10 +22,7 @@ export function NotationItem(props: PropsType) {
   }
 
   return (
-    <StyledNotationItem
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <StyledNotationItem onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className='right-container'>
         <div className='icon-container'>
           <div style={{ backgroundColor: props.iconColor }}>
@@ -40,13 +37,20 @@ export function NotationItem(props: PropsType) {
       </div>
 
       <div className='left-container'>
-        {!showDeleteContainer && (<div className='money-container'>
-          <p>{props.value.toFixed(2)}{props.currency}</p>
-        </div>)}
+        {!showDeleteContainer && (
+          <div className='money-container'>
+            <p>
+              {props.value.toFixed(2)}
+              {props.currency}
+            </p>
+          </div>
+        )}
 
-        {showDeleteContainer &&(<div className='delete-container'>
-          <Icons name='delete' color='#fff' size='24' className='icon' />
-        </div>)}
+        {showDeleteContainer && (
+          <div className='delete-container'>
+            <Icons name='delete' color='#fff' size='24' className='icon' />
+          </div>
+        )}
       </div>
     </StyledNotationItem>
   )

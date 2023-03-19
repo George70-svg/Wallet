@@ -104,5 +104,5 @@ export const commonStyle: CommonStyle = {
     time3: '0.3',
     time4: '0.4',
     time5: '0.5',
-  }
+  },
 }

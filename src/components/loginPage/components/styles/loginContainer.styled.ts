@@ -8,7 +8,7 @@ export const StyledLoginContainer = styled.div`
     initial-value: 132deg;
     inherits: false;
   }
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
