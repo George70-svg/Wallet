@@ -1,12 +1,12 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
 import { Box, Button, Checkbox, FormControlLabel, TextField } from '@mui/material'
 import { AccountCircle, Lock } from '@mui/icons-material'
 import { StyledLogin } from '@components/loginPage/components/styles/login.styled'
 import { LoginErrors } from '@components/components/errors/loginErrors'
-import { setLogin } from '@store/authStore'
+import { loginThunk } from '@store/authStore'
+import { LoginRequest } from '@endpoints/endpoints/auth/type'
+import { useAppDispatch } from '@store/store'
 
 interface IFormInput {
   login: string
@@ -14,20 +14,25 @@ interface IFormInput {
   remember: boolean
 }
 
+/*
+Алгоритм логинизации
+  1) Ввод логина и пароля
+  2) Отправка thunk loginThunk
+  3) При успехе получение токена и запись его в хранилище
+  4) Перезагрузка страницы чтобы собрать фронт с новым токеном (См. "Алгоритм аутентификации")
+*/
+
 export function Login() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<IFormInput>()
+  const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>()
+  const dispatch = useAppDispatch()
 
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const onSubmit = async (data: IFormInput) => {
+    const user: LoginRequest = {
+      login: data.login,
+      password: data.password
+    }
 
-  const onSubmit = (data: any) => {
-    console.log(data)
-    dispatch(setLogin(data.login))
-    navigate('wallet/invoice')
+    dispatch(loginThunk(user))
   }
 
   return (

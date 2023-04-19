@@ -10,13 +10,9 @@ export const Styles = createGlobalStyle`
   }
   
   body {
-    //height: 100vh;
-    //width: 100vw;
     margin: 0;
-
     background: ${() => commonStyle.gradients.backgroundDark};
     color: white;
-    
     font-family: 'Roboto', sans-serif;
     font-size: ${() => commonStyle.fonts.fs2};
   }
@@ -34,6 +30,19 @@ export const Styles = createGlobalStyle`
     margin: 0;
   }
 
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+  }
+  
   :root {
     --login-card-height: 45rem;
     --login-card-width: calc(var(--login-card-height) / 1.4);

@@ -13,7 +13,7 @@ export interface INotationState {
 }
 
 const initialState: INotationState = {
-  notations: []
+  notations: [],
 }
 
 export const notationsSlice = createSlice({
@@ -28,8 +28,8 @@ export const notationsSlice = createSlice({
         value: -10.26,
         currency: '$',
       })
-    }
-  }
+    },
+  },
 })
 
 export const { addNotation } = notationsSlice.actions

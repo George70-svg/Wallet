@@ -1,31 +1,27 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { LoginErrors } from '@components/components/errors/loginErrors'
 import { Box, Button, TextField } from '@mui/material'
 import { StyledLogin } from '@components/loginPage/components/styles/login.styled'
 import { AccountCircle, Lock, Email } from '@mui/icons-material'
+import { UserRequest } from '@endpoints/endpoints/auth/type'
+import { useAppDispatch } from '@store/store'
+import { signUpThunk } from '@store/authStore'
 
-interface IFormInput {
-  login: string
-  email: string
-  password: string
-  confirmPassword: string
-}
+/*
+Алгоритм регистрации
+  1) Ввод данных пользователя
+  2) Отправка thunk signUpThunk
+  3) Выполнение endpoint signUp
+  4) При успехе выполение loginThunk (см. "Алгоритм логинизации")
+*/
 
 export function SignUp() {
-  const {
-    register,
-    handleSubmit,
-    getValues,
-    formState: { errors },
-  } = useForm<IFormInput>()
-
+  const { register, handleSubmit, getValues, formState: { errors } } = useForm<UserRequest>()
   const [passwordsNotEqual, setPasswordsNotEqual] = useState(false)
+  const dispatch = useAppDispatch()
 
-  const navigate = useNavigate()
-
-  const onSubmit = () => {
+  const onSubmit = (user: UserRequest) => {
     const password1 = getValues('password')
     const password2 = getValues('confirmPassword')
 
@@ -34,7 +30,7 @@ export function SignUp() {
       return
     }
 
-    navigate('wallet/invoice')
+    dispatch(signUpThunk(user))
   }
 
   return (
