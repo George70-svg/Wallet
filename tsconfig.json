@@ -19,10 +19,11 @@
     "paths": {
       "@src/*": ["src/*"],
       "@store/*": ["store/*"],
+      "@endpoints/*": ["api/*"],
       "@components/*": ["components/*"],
       "@types/*": ["types/*"],
       "@utils/*": ["utils/*"],
-      "@icons/*": ["assets/icons/*"],
+      "@icons/*": ["assets/icons/*"]
     }
   },
   "include": ["src"]
