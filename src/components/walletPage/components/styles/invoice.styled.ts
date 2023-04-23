@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export const StyledInvoice = styled.div`
+export const StyledInvoice = styled.div.attrs(() => ({
+  className: 'invoice-page main-container',
+}))`
+  height: 100%;
   display: flex;
   justify-content: space-between;
 

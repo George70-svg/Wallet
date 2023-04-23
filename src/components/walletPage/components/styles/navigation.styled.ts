@@ -32,7 +32,7 @@ export const StyledNavigation = styled.header`
     }
   }
 
-  .user-menu-container {
+  .user-menu-button {
     position: absolute;
     top: 0.5rem;
     right: 2rem;

@@ -40,7 +40,22 @@ export const Styles = createGlobalStyle`
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.1);
-    z-index: 9999;
+    z-index: 10;
+  }
+  
+  .scroll-bar {
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #aaa;
+    }
   }
   
   :root {
@@ -76,7 +91,7 @@ export const commonStyle: CommonStyle = {
     widgetBackgroundDarkLight: 'rgba(118, 127, 161, 1)',
   },
   gradients: {
-    backgroundDark: 'linear-gradient(180deg, rgba(54,52,90,1) 12%, rgba(50,50,90,1) 40%, rgba(20,20,20,1) 100%)',
+    backgroundDark: 'linear-gradient(-10deg, rgba(33,33,33,1) 25%, rgba(64,72,94,1) 75%)',
     backgroundLight: 'linear-gradient(180deg, rgba(56,93,166,1) 47%, rgba(202,142,186,1) 93%)',
   },
   fonts: {
