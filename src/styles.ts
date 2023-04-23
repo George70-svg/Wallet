@@ -10,11 +10,18 @@ export const Styles = createGlobalStyle`
   }
   
   body {
+    height: 100vh;
+    width: 100vw;
     margin: 0;
     background: ${() => commonStyle.gradients.backgroundDark};
     color: white;
     font-family: 'Roboto', sans-serif;
     font-size: ${() => commonStyle.fonts.fs2};
+  }
+  
+  #root {
+    height: 100%;
+    width: 100%;
   }
   
   a {
