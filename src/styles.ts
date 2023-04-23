@@ -46,8 +46,16 @@ export const Styles = createGlobalStyle`
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.1);
     z-index: 10;
+  }
+  
+  .login-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .scroll-bar {
