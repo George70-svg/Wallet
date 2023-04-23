@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { commonStyle } from '../../../../styles'
+import spaceImg from '../../../../assets/img/space.png'
 
 export const StyledLoginContainer = styled.div`
   @property --rotate {
@@ -19,7 +20,7 @@ export const StyledLoginContainer = styled.div`
   position: relative;
   padding: 2rem;
 
-  background-image: url('../../../../assets/img/space.png');
+  background-image: url(${() => spaceImg});
   background-size: cover;
   border-radius: ${() => commonStyle.radii.radius2};
   color: ${() => commonStyle.colors.blue};

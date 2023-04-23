@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { commonStyle } from '../../../../styles'
+import astronautImg from '../../../../assets/img/astronaut.png'
 
 export const StyledUserMenuOuter = styled.div.attrs(() => ({
   className: 'user-menu-button',
@@ -26,7 +27,7 @@ export const StyledUserMenuInner = styled.div.attrs(() => ({
     
     .header {
       height: 12rem;
-      background-image: url('../../../../assets/img/astronaut.png');
+      background-image: url(${() => astronautImg});
       background-color: ${() => commonStyle.colors.grey900};
       background-size: cover;
       background-repeat: no-repeat;
