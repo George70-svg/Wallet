@@ -6,12 +6,14 @@ export interface IAuthState {
   isAuth: boolean
   login: string | null
   walletCurrency: string | null
+  email: string | null
 }
 
 const initialState: IAuthState = {
   isAuth: false,
   login: null,
   walletCurrency: null,
+  email: null,
 }
 
 export const authSlice = createSlice({
@@ -19,15 +21,13 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     loginUser: (state, action) => {
-      const { login, wallet_currency } = action.payload
+      const { login, wallet_currency, email } = action.payload
       state.login = login
+      state.email = email
       state.walletCurrency = wallet_currency
       state.isAuth = true
     },
-    logoutUser: (state) => {
-      state.login = null
-      state.walletCurrency = null
-      state.isAuth = false
+    logoutUser: () => {
       localStorage.removeItem('access_token')
       window.location.reload()
     },

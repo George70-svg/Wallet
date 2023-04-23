@@ -1,9 +1,10 @@
 import React from 'react'
+import { StyledExpenses } from '@components/walletPage/components/styles/expenses.styled'
 
 export function ExpensesPage() {
   return (
-    <div>
+    <StyledExpenses>
       <h1>The second page</h1>
-    </div>
+    </StyledExpenses>
   )
 }
