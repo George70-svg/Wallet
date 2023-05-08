@@ -1,12 +1,14 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Box, Button, Checkbox, FormControlLabel, TextField } from '@mui/material'
+import { Box, Button, TextField } from '@mui/material'
+//import { Checkbox, FormControlLabel } from '@mui/material'
 import { AccountCircle, Lock } from '@mui/icons-material'
 import { StyledLogin } from '@components/loginPage/components/styles/login.styled'
 import { LoginErrors } from '@components/components/errors/loginErrors'
 import { loginThunk } from '@store/authStore'
 import { LoginRequest } from '@endpoints/endpoints/auth/type'
-import { useAppDispatch } from '@store/store'
+import { IStore, useAppDispatch } from '@store/store'
+import { useSelector } from 'react-redux'
 
 interface IFormInput {
   login: string
@@ -22,9 +24,14 @@ interface IFormInput {
   4) Перезагрузка страницы чтобы собрать фронт с новым токеном (См. "Алгоритм аутентификации")
 */
 
+//login: AntonSerfer
+//password: !!Qwerty11
+
 export function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>()
   const dispatch = useAppDispatch()
+
+  const loginServerErrors = useSelector((state: IStore) => state.auth.loginServerErrors)
 
   const onSubmit = async (data: IFormInput) => {
     const user: LoginRequest = {
@@ -70,14 +77,18 @@ export function Login() {
           </Box>
           <LoginErrors validationErrors={errors.password} field='password' />
 
-          <div className='login-setting'>
+          {loginServerErrors.map((error, index) => (
+            <LoginErrors key={index} validationErrors={error} field='serverError' />
+          ))}
+
+          {/*<div className='login-setting'>
             <FormControlLabel
               className='label'
               control={<Checkbox defaultChecked size='small' {...register('remember')} />}
               label='Remember me?'
             />
             <p>Forgot password?</p>
-          </div>
+          </div>*/}
         </div>
 
         <Button className='enter-button' variant='contained' type='submit'>

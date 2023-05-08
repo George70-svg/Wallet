@@ -1,3 +1,5 @@
+import { FieldError } from 'react-hook-form'
+
 export type UserRequest = {
   login: string
   email: string
@@ -20,4 +22,14 @@ export type LoginRequest = {
 export type LoginResponse = {
   access_token: string
   refresh_token: string
+}
+
+export type ServerError = {
+  loc: any[]
+  msg: string
+  type: string
+}
+
+export const isLoginError = (error: FieldError | ServerError | undefined): boolean => {
+  return (error as ServerError).msg !== undefined
 }
