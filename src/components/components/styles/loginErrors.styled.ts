@@ -15,4 +15,8 @@ export const StyledLoginErrors = styled.div`
       margin-top: 0.5rem;
     }
   }
+
+  .server-error {
+    margin-top: 2rem;
+  }
 `

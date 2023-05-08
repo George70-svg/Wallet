@@ -5,8 +5,9 @@ import { Box, Button, TextField } from '@mui/material'
 import { StyledLogin } from '@components/loginPage/components/styles/login.styled'
 import { AccountCircle, Lock, Email } from '@mui/icons-material'
 import { UserRequest } from '@endpoints/endpoints/auth/type'
-import { useAppDispatch } from '@store/store'
+import { IStore, useAppDispatch } from '@store/store'
 import { signUpThunk } from '@store/authStore'
+import { useSelector } from 'react-redux'
 
 /*
 Алгоритм регистрации
@@ -16,10 +17,17 @@ import { signUpThunk } from '@store/authStore'
   4) При успехе выполение loginThunk (см. "Алгоритм логинизации")
 */
 
+//login: AntonSerfer
+//email: AntonBossss@gmail.com
+//password: !!Qwerty11
+//password: !!Qwerty11
+
 export function SignUp() {
   const { register, handleSubmit, getValues, formState: { errors } } = useForm<UserRequest>()
   const [passwordsNotEqual, setPasswordsNotEqual] = useState(false)
   const dispatch = useAppDispatch()
+
+  const signUpServerErrors = useSelector((state: IStore) => state.auth.signUpServerErrors)
 
   const onSubmit = (user: UserRequest) => {
     const password1 = getValues('password')
@@ -116,6 +124,10 @@ export function SignUp() {
             />
           </Box>
           <LoginErrors validationErrors={errors.confirmPassword} dataErrors={passwordsNotEqual} field='confirmPassword' />
+
+          {signUpServerErrors.map((error, index) => (
+            <LoginErrors key={index} validationErrors={error} field='serverError' />
+          ))}
         </div>
 
         <Button className='enter-button' variant='contained' type='submit'>

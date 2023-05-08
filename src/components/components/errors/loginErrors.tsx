@@ -1,11 +1,12 @@
 import React from 'react'
 import { FieldError } from 'react-hook-form'
 import { StyledLoginErrors } from '@components/components/styles/loginErrors.styled'
+import { isLoginError, ServerError } from '@endpoints/endpoints/auth/type'
 
-type Field = 'login' | 'email' | 'password' | 'confirmPassword'
+type Field = 'login' | 'email' | 'password' | 'confirmPassword' | 'serverError'
 
 interface LoginErrorsType {
-  validationErrors: FieldError | undefined
+  validationErrors: FieldError | ServerError | undefined
   dataErrors?: boolean
   field: Field
 }
@@ -63,7 +64,9 @@ export function LoginErrors(props: LoginErrorsType) {
         <p className='error-text'>{errorMessages.emailRequired}</p>
       )}
 
-      {props.field === 'email' && props.validationErrors?.type === 'pattern' && <p className='error-text'>{errorMessages.invalidEmail}</p>}
+      {props.field === 'email' && props.validationErrors?.type === 'pattern' &&
+        <p className='error-text'>{errorMessages.invalidEmail}</p>
+      }
 
       {props.field === 'confirmPassword' && props.validationErrors?.type === 'required' && (
         <p className='error-text'>{errorMessages.passwordRequired}</p>
@@ -77,9 +80,17 @@ export function LoginErrors(props: LoginErrorsType) {
         <p className='error-text'>{errorMessages.passwordPattern}</p>
       )}
 
-      {props.field === 'confirmPassword' && props.dataErrors && <p className='error-text'>{errorMessages.passwordsNotEqual}</p>}
+      {props.field === 'confirmPassword' && props.dataErrors &&
+        <p className='error-text'>{errorMessages.passwordsNotEqual}</p>
+      }
 
-      {props.field === 'password' && props.dataErrors && <p className='error-text'>{errorMessages.invalidLoginOrPassword}</p>}
+      {props.field === 'password' && props.dataErrors &&
+        <p className='error-text'>{errorMessages.invalidLoginOrPassword}</p>
+      }
+
+      {props.field === 'serverError' && props.validationErrors && isLoginError(props.validationErrors) && (
+        <p className='error-text server-error'>{(props.validationErrors as ServerError).msg}</p>
+      )}
     </StyledLoginErrors>
   )
 }

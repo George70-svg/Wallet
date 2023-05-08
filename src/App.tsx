@@ -33,7 +33,7 @@ import { Styles } from './styles'
      c) Редирект на кошелёк.
 */
 
-//На страницу wallet можно попасть по url
+//FIXME: [@asiuraev 08.05.2023] - На страницу wallet можно попасть по url в мобильном браузере
 function App() {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
