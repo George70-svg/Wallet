@@ -28,13 +28,6 @@ type Colors = {
   grey800: Color
   grey900: Color
   black: Color
-  widgetBackgroundDark: Color
-  widgetBackgroundDarkLight: Color
-}
-
-type Gradients = {
-  backgroundDark: string
-  backgroundLight: string
 }
 
 type Fonts = {
@@ -76,11 +69,25 @@ type Times = {
   time5: string
 }
 
+type Theme = {
+  color: Color
+  backgroundColor: Color
+  backgroundGradient: string
+  widgetBackground: Color
+  widgetBackgroundHover: Color
+}
+
+
 export type CommonStyle = {
   colors: Colors
-  gradients: Gradients
   fonts: Fonts
   shadows: Shadows
   radii: Radii
   times: Times
+  darkTheme: Theme
+  lightTheme: Theme
+}
+
+export type ColorThemeProps = {
+  colorTheme: 'darkTheme' | 'lightTheme'
 }
