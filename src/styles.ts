@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
+//@ts-ignore
+import { ColorThemeProps, CommonStyle } from '@types/stylesType'
 
-import { CommonStyle } from './types/stylesType'
-
-export const Styles = createGlobalStyle`
+export const Styles = createGlobalStyle<ColorThemeProps>`
   @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
   * {
@@ -13,7 +13,7 @@ export const Styles = createGlobalStyle`
     height: 100vh;
     width: 100vw;
     margin: 0;
-    background: ${() => commonStyle.gradients.backgroundDark};
+    background: ${(props) => commonStyle[props.colorTheme].backgroundGradient};
     color: white;
     font-family: 'Roboto', sans-serif;
     font-size: ${() => commonStyle.fonts.fs2};
@@ -102,12 +102,6 @@ export const commonStyle: CommonStyle = {
     grey800: '#424242',
     grey900: '#212121',
     black: '#000000',
-    widgetBackgroundDark: 'rgba(79, 83, 115, 1)',
-    widgetBackgroundDarkLight: 'rgba(118, 127, 161, 1)',
-  },
-  gradients: {
-    backgroundDark: 'linear-gradient(-10deg, rgba(33,33,33,1) 25%, rgba(64,72,94,1) 75%)',
-    backgroundLight: 'linear-gradient(180deg, rgba(56,93,166,1) 47%, rgba(202,142,186,1) 93%)',
   },
   fonts: {
     fs0: '0.75rem',
@@ -143,5 +137,19 @@ export const commonStyle: CommonStyle = {
     time3: '0.3',
     time4: '0.4',
     time5: '0.5',
+  },
+  darkTheme: {
+    color: '#ffffff',
+    backgroundColor: '#191c29',
+    backgroundGradient: 'linear-gradient(-10deg, rgba(33,33,33,1) 25%, rgba(64,72,94,1) 75%)',
+    widgetBackground: 'rgba(79, 83, 115, 0.5)',
+    widgetBackgroundHover: 'rgba(79, 83, 115, 1)',
+  },
+  lightTheme: {
+    color: '#000000',
+    backgroundColor: '#ededed',
+    backgroundGradient: 'linear-gradient(150deg, rgba(56,93,166,1) 47%, rgba(202,142,186,1) 93%)',
+    widgetBackground: 'rgba(118, 127, 161, 0.5)',
+    widgetBackgroundHover: 'rgba(104, 112, 143, 1)',
   },
 }

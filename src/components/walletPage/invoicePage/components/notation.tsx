@@ -2,6 +2,8 @@ import React from 'react'
 import { StyledNotationItem } from '@components/walletPage/invoicePage/components/styles/notation.styled'
 import Icons from '@icons/icons'
 import { capitalizeFirstLetter } from '@components/utils/common'
+import { useSelector } from 'react-redux'
+import { IStore } from '@store/store'
 
 type PropsType = {
   iconColor: string
@@ -12,9 +14,10 @@ type PropsType = {
 }
 
 export function NotationItem(props: PropsType) {
+  const colorTheme = useSelector((state: IStore) => state.theme.colorTheme)
 
   return (
-    <StyledNotationItem>
+    <StyledNotationItem colorTheme={colorTheme}>
       <div className='right-container'>
         <div className='icon-container'>
           <div style={{ backgroundColor: props.iconColor }}>

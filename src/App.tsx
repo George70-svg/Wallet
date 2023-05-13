@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { CircularProgress } from '@mui/material'
 import { LoginPage } from '@components/loginPage/loginPage'
 import { WalletPage } from '@components/walletPage/walletPage'
 import { ExpensesPage } from '@components/walletPage/expensesPage/expensesPage'
 import { ExchangePage } from '@components/walletPage/exchangePage/exchangePage'
 import { InvoicePage } from '@components/walletPage/invoicePage/invoicePage'
-import { useAppDispatch } from '@store/store'
+import { IStore, useAppDispatch } from '@store/store'
 import { getUserThunk } from '@store/authStore'
 
 import { Styles } from './styles'
@@ -41,6 +42,8 @@ function App() {
 
   const [isLoading, setLoading] = React.useState(true)
 
+  const colorTheme = useSelector((state: IStore) => state.theme.colorTheme)
+
   //Need for one first request
   useEffect(() => {
     dispatch(getUserThunk())
@@ -65,7 +68,7 @@ function App() {
 
   return (
     <>
-      <Styles />
+      <Styles colorTheme={colorTheme}/>
 
       {isLoading && (
         <div className="loading-container">

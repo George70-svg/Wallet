@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+//@ts-ignore
+import { ColorThemeProps } from '@types/stylesType'
 
 import { commonStyle } from '../../../../styles'
 import astronautImg from '../../../../assets/img/astronaut.png'
@@ -11,7 +13,7 @@ export const StyledUserMenuOuter = styled.div.attrs(() => ({
 
 export const StyledUserMenuInner = styled.div.attrs(() => ({
   className: 'user-menu-container',
-}))`
+}))<ColorThemeProps>`
   height: 100%;
   
   .MuiBox-root {
@@ -23,7 +25,7 @@ export const StyledUserMenuInner = styled.div.attrs(() => ({
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: ${() => commonStyle.colors.darkPurple};
+    background-color: ${(props) => commonStyle[props.colorTheme].backgroundColor};
     
     .header {
       height: 12rem;
@@ -39,11 +41,27 @@ export const StyledUserMenuInner = styled.div.attrs(() => ({
       flex-grow: 1;
       margin-top: 2rem;
       padding: 0.3rem 1rem;
-      color: ${() => commonStyle.colors.white};
+      color: ${(props) => commonStyle[props.colorTheme].color};
 
       .currency {
         display: flex;
         justify-content: space-between;
+      }
+      
+      .theme {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        
+        .MuiSwitch-root {
+          position: relative;
+          right: -8px;
+
+          .MuiSvgIcon-root {
+            position: relative;
+            top: -1.5px;
+          }
+        }
       }
     }
 

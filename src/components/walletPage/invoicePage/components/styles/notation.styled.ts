@@ -1,8 +1,10 @@
 import styled from 'styled-components'
+// @ts-ignore
+import { ColorThemeProps } from '@types/stylesType'
 
 import { commonStyle } from '../../../../../styles'
 
-export const StyledNotationItem = styled.div`
+export const StyledNotationItem = styled.div<ColorThemeProps>`
   display: flex;
   justify-content: space-between;
   margin: 1rem;
@@ -57,7 +59,7 @@ export const StyledNotationItem = styled.div`
   }
 
   &:hover {
-    background-color: ${() => commonStyle.colors.widgetBackgroundDarkLight};
+    background-color: ${(props) => commonStyle[props.colorTheme].widgetBackgroundHover};
     transition: background-color ${() => commonStyle.times.time4};
   }
 `

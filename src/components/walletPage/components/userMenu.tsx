@@ -1,19 +1,26 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import Box from '@mui/material/Box'
 import Drawer from '@mui/material/Drawer'
 import Icons from '@icons/icons'
+import { Switch } from '@mui/material'
+import DarkModeIcon from '@mui/icons-material/DarkMode'
+import Brightness7Icon from '@mui/icons-material/Brightness7'
+import Box from '@mui/material/Box'
+import { yellow } from '@mui/material/colors'
 import { StyledUserMenuInner, StyledUserMenuOuter } from '@components/walletPage/components/styles/styled.userMenu'
 import { IStore, useAppDispatch } from '@store/store'
 import { logoutUser } from '@store/authStore'
 import { limitString } from '@components/utils/common'
+import { changeTheme } from '@store/colorThemeStore'
 
 export function UserMenu() {
+  const dispatch = useAppDispatch()
+
   const [toggleMenu, setMenu] = React.useState(false)
 
+  const colorTheme = useSelector((state: IStore) => state.theme.colorTheme)
   const userName = useSelector((state: IStore) => state.auth.login) || 'UNKNOWN'
   const walletCurrency = useSelector((state: IStore) => state.auth.walletCurrency) || 'UNKNOWN'
-  const dispatch = useAppDispatch()
 
   const toggleDrawer = () => {
     setMenu(!toggleMenu)
@@ -23,8 +30,12 @@ export function UserMenu() {
     dispatch(logoutUser())
   }
 
+  const switchTheme = () => {
+    dispatch(changeTheme())
+  }
+
   const list = () => (
-    <StyledUserMenuInner >
+    <StyledUserMenuInner colorTheme={colorTheme}>
       <Box sx={{ width: 350 }} role='presentation' onKeyDown={toggleDrawer}>
         <div className='menu'>
           <div className='header'>
@@ -36,11 +47,22 @@ export function UserMenu() {
               <p>Currency</p>
               <p>{walletCurrency}</p>
             </div>
+
+            <div className='theme'>
+              <p>Switch theme</p>
+              <Switch
+                onChange={switchTheme}
+                checked={colorTheme === 'darkTheme'}
+                color='primary'
+                icon={<Brightness7Icon fontSize='medium' sx={{ color: yellow[800] }} />}
+                checkedIcon={<DarkModeIcon fontSize='medium' sx={{ color: yellow[100] }} />}
+              />
+            </div>
           </div>
 
           <div className='footer'>
             <div className='profile'>
-              <Icons name='profile' color='#fff' size='32' className='icon' />
+              <Icons name='profile' color='#fff' size='32' className='icon'/>
               <p>{limitString(userName, 20)}</p>
             </div>
 
